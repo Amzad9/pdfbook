@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from '../store/sidebarSlice';
 import { X, AlignJustify } from 'lucide-react';
 
-function TopNavigation({ title }) {
+function TopNavigation() {
   const isOpen = useSelector((state) => state.sidebar.isOpen);
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ function TopNavigation({ title }) {
       >
         {isOpen ? <X size={24} /> : <AlignJustify size={24} />}
       </button>
-      <h1 className="ml-4 text-lg font-semibold">{title}</h1>
+      <h1 className="ml-4 text-lg font-semibold"></h1>
     </nav>
   );
 }
