@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Sidebar = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.sidebar.isOpen);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(localStorage.setItem("menu", JSON.stringify(false)));
 
   const menuItems = [
     { title: "About the Book", url: 'about' },
@@ -78,7 +78,7 @@ const Sidebar = () => {
                     <>
                       <button
                         onClick={() => setDropdownOpen((prev) => !prev)}
-                        className="flex items-center justify-between w-full px-4 py-3 text-left text-black hover:bg-blue-200 transition-colors duration-200 text-sm border-b border-blue-100"
+                        className="flex font-semibold items-center justify-between w-full px-4 py-3 text-left text-black hover:bg-blue-200 transition-colors duration-200 text-sm border-b border-blue-100"
                       >
                         {item.title}
                         {dropdownOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
