@@ -1,3 +1,25 @@
 html, body{
  overflow-x: hidden;
 }
+.sidebar-scrollbar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #2563eb #93c5fd; /* Thumb and Track */
+}
+
+.sidebar-scrollbar:hover::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 0px; /* Initially hidden */
+}
+
+.sidebar-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+

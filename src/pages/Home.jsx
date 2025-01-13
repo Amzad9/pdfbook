@@ -6,9 +6,9 @@ function Home() {
   return (
     <div className='flex'>
        <Sidebar />
-       <main className='w-full h-screen'>
+       <main className='w-full h-screen bg-gray-200'>
         <TopNavigation />
-        <div className='container px-4 mx-auto pt-0 pb-0'>
+        <div className='max-w-[1200px] my-3 mx-auto px-3 overflow-y-scroll h-full'>
          <Outlet />
        </div>
       </main>

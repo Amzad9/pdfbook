@@ -1,113 +1,43 @@
-import React, { useRef, useState } from "react";
-import HTMLFlipBook from "react-pageflip";
-import PropTypes from "prop-types";
 
+import PageHeader from "../components/PageHeader";
 const About = () => {
-  const flipBookRef = useRef(null);
-  const [page, setPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-
-  const handleNext = () => {
-    if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipNext();
-    }
-  };
-
-  const handlePrev = () => {
-    if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipPrev();
-    }
-  };
-
-  const onPageFlip = (e) => {
-    setPage(e.data);
-  };
-
-  const onBookReady = () => {
-    if (flipBookRef.current) {
-      setTotalPages(flipBookRef.current.pageFlip().getPageCount());
-    }
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
- {/* Navigation Buttons */}
-      <div className="mb-6 flex items-center gap-4">
-        <button
-          type="button"
-          onClick={handlePrev}
-          className="px-4 py-2 text-white bg-gray-800 rounded-md hover:bg-gray-600"
-        >
-          Previous
-        </button>
-        <span className="text-lg font-semibold">
-          {page} of {totalPages}
-        </span>
-        <button
-          type="button"
-          onClick={handleNext}
-          className="px-4 py-2 text-white bg-gray-800 rounded-md hover:bg-gray-600"
-        >
-          Next
-        </button>
-      </div>
-      {/* Flipbook Container */}
-      <div className="relative w-full max-w-screen-sm mx-auto">
-        <HTMLFlipBook
-          width={300}
-          height={400}
-          size="stretch"
-          minWidth={200}
-          maxWidth={600}
-          minHeight={300}
-          maxHeight={800}
-          mobileScrollSupport={true}
-          onFlip={onPageFlip}
-          onInit={onBookReady}
-          className="demo-book shadow-lg"
-          ref={flipBookRef}
-        >
-          <PageCover>BOOK TITLE</PageCover>
-          <Page number={1} className="bg-red-400 px-6">Page 1 content</Page>
-          <Page number={2} className="bg-blue-400 px-6">Page 2 content</Page>
-          <PageCover>THE END</PageCover>
-        </HTMLFlipBook>
-      </div>
+    <div className="bg-white p-4">
+      <PageHeader pageTitle="About the Book" className='text-start py-5' />
+      <p className="font-roboto mb-4">The compendium on adaptive water resources management
+        practices in Sindh titled “Water Wisdom - Conserving Water for
+        Pakistan’s Future” is a comprehensive collection of efforts to
+        address the pressing water resources challenges faced by the
+        second most populous province of Pakistan. This initiative aligns
+        with the Sindh Water Policy 2023 and emphasises the critical
+        need for innovative and adaptive water management strategies
+        to ensure the region’s sustainable development and well-being.
+        The significant contributions of the Government of Sindh, various
+        provincial and federal departments, and local stakeholders have
+        enriched this compendium. </p>
+      <p className="font-roboto">for policymakers, water resources managers, and agricultural
+        extension workers. By adopting and scaling up the identified
+        best practices, Sindh can move towards more efficient water
+        use, improved agricultural productivity, and enhanced resilience
+        to the adverse impacts of climate change. The compendium
+        also aims to raise awareness and sensitise decision-makers,
+        service providers, and professionals, about the beneficial use of
+        conventional and non-conventional water resources to mitigate
+        the impacts of seasonal climatic variations on surface run-off,
+        river flows, canal supplies, groundwater recharge, and discharges.
+        The success of these adaptive practices will contribute to
+        securing water availability for diverse demands, supporting
+        environmental flows, and fostering economic growth and food
+        security in Sindh, Pakistan. The compendium provides technical
+        insights and inspires collective action towards climate change
+        adaptation, building resilience of the water sector, and sustainable
+        water resources management for the future prosperity of the
+        province</p>
     </div>
   );
 };
 
-const PageCover = React.forwardRef((props, ref) => (
-  <div
-    className="page page-cover bg-blue-200 flex items-center justify-center h-full text-xl font-bold"
-    ref={ref}
-    data-density="hard"
-  >
-    <div className="page-content">
-      <h2>{props.children}</h2>
-    </div>
-  </div>
-));
-PageCover.displayName = "PageCover";
 
-const Page = React.forwardRef((props, ref) => (
-  <div className={"page " + props.className} ref={ref}>
-    <div className="page-content">
-      <h2 className="text-xl font-bold">Page {props.number}</h2>
-      <p className="text-base">{props.children}</p>
-    </div>
-  </div>
-));
-Page.displayName = "Page";
 
-PageCover.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};
-Page.propTypes = {
-  children: PropTypes.node.isRequired,
-  number: PropTypes.number,
-  className: PropTypes.string,
-};
 
 export default About;
