@@ -1,14 +1,10 @@
-import PageHeader from "../components/PageHeader"
+import Page10 from "../assets/pages/10/0.jpg";
 
 function Message() {
   return (
     <div className="bg-white p-4">
-     <PageHeader pageTitle="Message" className="mb-5" />
-     <div className="bg-purple-950 w-72 h-72"></div>
-     <p className="mt-3">Secretary<br />
-Sindh Irrigation
-Department</p>
-</div>
+            <img src={Page10} alt="aboutus" />
+          </div>
   )
 }
 

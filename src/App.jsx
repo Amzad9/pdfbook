@@ -11,7 +11,11 @@ const MessageSindh = lazy(() => import('./pages/MessageSindh'))
 const Introduction = lazy(()=> import('./pages/Introduction'))
 const WaterResources = lazy(() => import('./pages/WaterResources'))
 const ClimateDynamics = lazy(() => import('./pages/ClimateDynamics'))
-
+const Dashbpard = lazy(()=> import('./pages/Dashboard'));
+const Identification = lazy(() => import('./pages/Identification'));
+const Evaluation = lazy(() => import('./pages/Evaluation'))
+const Categorisation = lazy(() => import('./pages/Categorisation'))
+const BananaResidue = lazy(() => import('./pages/BananaResidue'))
 function App() {
 
   return (
@@ -20,6 +24,10 @@ function App() {
       <BrowserRouter>
         <Routes>
         <Route path='/' element={<Home />}>
+            <Route 
+            path='/' 
+            element={<Suspense fallback={<Loader />}><Dashbpard /></Suspense>} 
+          />
           <Route 
             path='about' 
             element={<Suspense fallback={<Loader />}><About /></Suspense>} 
@@ -47,6 +55,22 @@ function App() {
           <Route 
             path='climatedynamics' 
             element={<Suspense fallback={<Loader />}><ClimateDynamics /></Suspense>} 
+          />
+         <Route 
+            path='identification' 
+            element={<Suspense fallback={<Loader />}><Identification /></Suspense>} 
+          />
+          <Route 
+            path='evaluation' 
+            element={<Suspense fallback={<Loader />}><Evaluation /></Suspense>} 
+          />
+          <Route 
+            path='categorisation' 
+            element={<Suspense fallback={<Loader />}><Categorisation /></Suspense>} 
+          />
+         <Route 
+            path='banana-residue-management' 
+            element={<Suspense fallback={<Loader />}><BananaResidue /></Suspense>} 
           />
         </Route>
       </Routes> 
