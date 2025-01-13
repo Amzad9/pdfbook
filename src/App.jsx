@@ -26,27 +26,27 @@ function App() {
           />
           <Route 
             path='forward' 
-            element={<Suspense fallback={<div>Loading...</div>}><Foreword /></Suspense>} 
+            element={<Suspense fallback={<Loader />}><Foreword /></Suspense>} 
           />
           <Route 
             path='message' 
-            element={<Suspense fallback={<div>Loading...</div>}><Message /></Suspense>} 
+            element={<Suspense fallback={<Loader />}><Message /></Suspense>} 
           />
           <Route 
             path='messagesindh' 
-            element={<Suspense fallback={<div>Loading...</div>}><MessageSindh /></Suspense>} 
+            element={<Suspense fallback={<Loader />}><MessageSindh /></Suspense>} 
           />
           <Route 
             path='introduction' 
-            element={<Suspense fallback={<div>Loading...</div>}><Introduction /></Suspense>} 
+            element={<Suspense fallback={<Loader />}><Introduction /></Suspense>} 
           />
           <Route 
             path='waterresources' 
-            element={<Suspense fallback={<div>Loading...</div>}><WaterResources /></Suspense>} 
+            element={<Suspense fallback={<Loader />}><WaterResources /></Suspense>} 
           />
           <Route 
             path='climatedynamics' 
-            element={<Suspense fallback={<div>Loading...</div>}><ClimateDynamics /></Suspense>} 
+            element={<Suspense fallback={<Loader />}><ClimateDynamics /></Suspense>} 
           />
         </Route>
       </Routes> 
