@@ -7,10 +7,10 @@ import Page71 from "../assets/pages/71/0.jpg";
 function MobileApplication() {
   return (
     <div className="bg-white p-4">
-           <img src={Page68} alt="Evaluation" />
-           <img src={Page69} alt="Evaluation" className="mt-5" />
-           <img src={Page70} alt="Evaluation" className="mt-5" />
-           <img src={Page71} alt="Evaluation" className="mt-5" />
+           <img src={Page68} loading="lazy" alt="Evaluation" />
+           <img src={Page69} loading="lazy" alt="Evaluation" className="mt-5" />
+           <img src={Page70} loading="lazy" alt="Evaluation" className="mt-5" />
+           <img src={Page71} loading="lazy" alt="Evaluation" className="mt-5" />
        </div>
   )
 }

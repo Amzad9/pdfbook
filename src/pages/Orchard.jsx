@@ -6,10 +6,10 @@ import Page55 from "../assets/pages/55/0.jpg";
 function Orchard() {
   return (
      <div className="bg-white p-4">
-        <img src={Page52} alt="Evaluation" />
-        <img src={Page53} alt="Evaluation" className="mt-5" />
-        <img src={Page54} alt="Evaluation" className="mt-5" />
-        <img src={Page55} alt="Evaluation" className="mt-5" />
+        <img src={Page52} loading="lazy" alt="Evaluation" />
+        <img src={Page53} loading="lazy" alt="Evaluation" className="mt-5" />
+        <img src={Page54} loading="lazy" alt="Evaluation" className="mt-5" />
+        <img src={Page55} loading="lazy" alt="Evaluation" className="mt-5" />
     </div>
   )
 }

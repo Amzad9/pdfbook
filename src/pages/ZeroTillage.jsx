@@ -6,10 +6,10 @@ import Page35 from "../assets/pages/35/0.jpg";
 function ZeroTillage() {
   return (
      <div className="bg-white p-4">
-        <img src={Page32} alt="Evaluation" />
-        <img src={Page33} alt="Evaluation" className="mt-5" />
-        <img src={Page34} alt="Evaluation" className="mt-5" />
-        <img src={Page35} alt="Evaluation" className="mt-5" />
+        <img src={Page32} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" />
+        <img src={Page33} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
+        <img src={Page34} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
+        <img src={Page35} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
     </div>
   )
 }

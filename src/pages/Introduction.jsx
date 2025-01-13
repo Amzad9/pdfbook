@@ -4,8 +4,8 @@ import Page13 from "../assets/pages/13/0.jpg";
 function Introduction() {
     return (
        <div className="bg-white p-4">
-          <img src={Page12} alt="aboutus" />
-          <img src={Page13} alt="aboutus" className="mt-5" />
+          <img src={Page12} loading="lazy" alt="aboutus" />
+          <img src={Page13} loading="lazy" alt="aboutus" className="mt-5" />
         </div>
     )
 }

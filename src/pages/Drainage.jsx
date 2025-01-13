@@ -6,10 +6,10 @@ import Page27 from "../assets/pages/27/0.jpg";
 function Drainage() {
     return (
         <div className="bg-white p-4">
-            <img src={Page24} alt="Evaluation" />
-            <img src={Page25} alt="Evaluation" className="mt-5" />
-            <img src={Page26} alt="Evaluation" className="mt-5" />
-            <img src={Page27} alt="Evaluation" className="mt-5" />
+            <img src={Page24} loading="lazy" alt="Evaluation" />
+            <img src={Page25} loading="lazy" alt="Evaluation" className="mt-5" />
+            <img src={Page26} loading="lazy" alt="Evaluation" className="mt-5" />
+            <img src={Page27} loading="lazy" alt="Evaluation" className="mt-5" />
         </div>
     )
 }

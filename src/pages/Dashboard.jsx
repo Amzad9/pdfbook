@@ -11,13 +11,13 @@ import Page07 from "../assets/pages/07/0.jpg";
 const Dashboatrd = () => {
   return (
     <div>
-      <img src={Page01} alt="" />
-      <img src={Page02} alt="" />
-      <img src={Page03} alt="" />
-      <img src={Page04} alt="" />
-      <img src={Page05} alt="" />
-      <img src={Page06} alt="" />
-      <img src={Page07} alt="" />
+      <img src={Page01} loading="lazy" alt="" />
+      <img src={Page02} loading="lazy" alt="" />
+      <img src={Page03} loading="lazy" alt="" />
+      <img src={Page04} loading="lazy" alt="" />
+      <img src={Page05} loading="lazy" alt="" />
+      <img src={Page06} loading="lazy" alt="" />
+      <img src={Page07} loading="lazy" alt="" />
     </div>
   );
 };

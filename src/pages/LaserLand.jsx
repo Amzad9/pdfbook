@@ -7,10 +7,10 @@ import Page31 from "../assets/pages/31/0.jpg";
 function LaserLand() {
     return (
         <div className="bg-white p-4">
-            <img src={Page28} alt="Evaluation" />
-            <img src={Page29} alt="Evaluation" className="mt-5" />
-            <img src={Page30} alt="Evaluation" className="mt-5" />
-            <img src={Page31} alt="Evaluation" className="mt-5" />
+            <img src={Page28} loading="lazy" alt="Evaluation" />
+            <img src={Page29} loading="lazy" alt="Evaluation" className="mt-5" />
+            <img src={Page30} loading="lazy" alt="Evaluation" className="mt-5" />
+            <img src={Page31} loading="lazy" alt="Evaluation" className="mt-5" />
         </div>
     )
 }

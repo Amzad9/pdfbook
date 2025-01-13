@@ -6,10 +6,10 @@ import Page47 from "../assets/pages/47/0.jpg";
 function Tunnel() {
   return (
     <div className="bg-white p-4">
-            <img src={Page44} alt="Evaluation" />
-            <img src={Page45} alt="Evaluation" className="mt-5" />
-            <img src={Page46} alt="Evaluation" className="mt-5" />
-            <img src={Page47} alt="Evaluation" className="mt-5" />
+            <img src={Page44} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" />
+            <img src={Page45} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
+            <img src={Page46} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
+            <img src={Page47} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
         </div>
   )
 }

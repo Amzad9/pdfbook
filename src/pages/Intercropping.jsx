@@ -6,10 +6,10 @@ import Page43 from "../assets/pages/43/0.jpg";
 function Intercropping() {
   return (
     <div className="bg-white p-4">
-        <img src={Page40} alt="Evaluation" />
-        <img src={Page41} alt="Evaluation" className="mt-5" />
-        <img src={Page42} alt="Evaluation" className="mt-5" />
-        <img src={Page43} alt="Evaluation" className="mt-5" />
+        <img src={Page40} loading="lazy" alt="Evaluation" />
+        <img src={Page41} loading="lazy" alt="Evaluation" className="mt-5" />
+        <img src={Page42} loading="lazy" alt="Evaluation" className="mt-5" />
+        <img src={Page43} loading="lazy" alt="Evaluation" className="mt-5" />
     </div>
   )
 }

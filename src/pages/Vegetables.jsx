@@ -6,10 +6,10 @@ import Page51 from "../assets/pages/51/0.jpg";
 function Vegetables() {
   return (
      <div className="bg-white p-4">
-        <img src={Page48} alt="Evaluation" />
-        <img src={Page49} alt="Evaluation" className="mt-5" />
-        <img src={Page50} alt="Evaluation" className="mt-5" />
-        <img src={Page51} alt="Evaluation" className="mt-5" />
+        <img src={Page48} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" />
+        <img src={Page49} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
+        <img src={Page50} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
+        <img src={Page51} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
     </div>
   )
 }

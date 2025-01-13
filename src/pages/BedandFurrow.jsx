@@ -8,10 +8,10 @@ import Page75 from "../assets/pages/75/0.jpg";
 function BedandFurrow() {
   return (
       <div className="bg-white p-4">
-               <img src={Page72} alt="Evaluation" />
-               <img src={Page73} alt="Evaluation" className="mt-5" />
-               <img src={Page74} alt="Evaluation" className="mt-5" />
-               <img src={Page75} alt="Evaluation" className="mt-5" />
+               <img src={Page72} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" />
+               <img src={Page73} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" /> style={{ width: "100%", height: "auto" }}
+               <img src={Page74} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" /> style={{ width: "100%", height: "auto" }}
+               <img src={Page75} loading="lazy" style={{ width: "100%", height: "auto" }} alt="Evaluation" className="mt-5" />
            </div>
   )
 }

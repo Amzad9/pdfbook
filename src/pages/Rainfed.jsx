@@ -6,10 +6,10 @@ import Page59 from "../assets/pages/59/0.jpg";
 function Rainfed() {
   return (
     <div className="bg-white p-4">
-        <img src={Page56} alt="Evaluation" />
-        <img src={Page57} alt="Evaluation" className="mt-5" />
-        <img src={Page58} alt="Evaluation" className="mt-5" />
-        <img src={Page59} alt="Evaluation" className="mt-5" />
+        <img src={Page56} loading="lazy" alt="Evaluation" />
+        <img src={Page57} loading="lazy" alt="Evaluation" className="mt-5" />
+        <img src={Page58} loading="lazy" alt="Evaluation" className="mt-5" />
+        <img src={Page59} loading="lazy" alt="Evaluation" className="mt-5" />
     </div>
   )
 }
