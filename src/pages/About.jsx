@@ -1,10 +1,11 @@
 
 import PageHeader from "../components/PageHeader";
+import AboutBanner from '../assets/about-banner.png'
 const About = () => {
   return (
-    <div className="bg-white p-4">
+    <div className="bg-white px-4 pb-12 mb-8">
       <PageHeader pageTitle="About the Book" className='text-start py-5' />
-      <p className="font-roboto mb-4">The compendium on adaptive water resources management
+      <p className='font-roboto text-justify leading-relaxed mt-4'>The compendium on adaptive water resources management
         practices in Sindh titled “Water Wisdom - Conserving Water for
         Pakistan’s Future” is a comprehensive collection of efforts to
         address the pressing water resources challenges faced by the
@@ -12,10 +13,10 @@ const About = () => {
         with the Sindh Water Policy 2023 and emphasises the critical
         need for innovative and adaptive water management strategies
         to ensure the region’s sustainable development and well-being.
-        The significant contributions of the Government of Sindh, various
+         </p>
+      <p className='font-roboto text-justify leading-relaxed mt-4'>The significant contributions of the Government of Sindh, various
         provincial and federal departments, and local stakeholders have
-        enriched this compendium. </p>
-      <p className="font-roboto">for policymakers, water resources managers, and agricultural
+        enriched this compendium. for policymakers, water resources managers, and agricultural
         extension workers. By adopting and scaling up the identified
         best practices, Sindh can move towards more efficient water
         use, improved agricultural productivity, and enhanced resilience
@@ -25,7 +26,8 @@ const About = () => {
         conventional and non-conventional water resources to mitigate
         the impacts of seasonal climatic variations on surface run-off,
         river flows, canal supplies, groundwater recharge, and discharges.
-        The success of these adaptive practices will contribute to
+       </p>
+<p className='font-roboto text-justify leading-relaxed mt-4 mb-8'> The success of these adaptive practices will contribute to
         securing water availability for diverse demands, supporting
         environmental flows, and fostering economic growth and food
         security in Sindh, Pakistan. The compendium provides technical
@@ -33,6 +35,7 @@ const About = () => {
         adaptation, building resilience of the water sector, and sustainable
         water resources management for the future prosperity of the
         province</p>
+<img src={AboutBanner} alt='graph' className='max-w-full object-contain' />
     </div>
   );
 };
