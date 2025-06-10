@@ -1,5 +1,5 @@
 
-import Page01 from "../assets/pages/08/0.jpg";
+import Page01 from "../assets/pages2/4.jpg";
 
 
 

@@ -8,16 +8,13 @@ function TopNavigation() {
   const dispatch = useDispatch();
 
   return (
-    <nav className="flex bg-white py-4 px-4 shadow-lg">
       <button
         onClick={() => dispatch(toggleSidebar())}
-        className="flex items-center relative"
+        className="flex items-center absolute top-3 -right-10 z-50  bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         {isOpen ? <X size={24} /> : <AlignJustify size={24} />}
       </button>
-      <h1 className="ml-4 text-lg font-semibold"></h1>
-    </nav>
   );
 }
 
