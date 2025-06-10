@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from '../store/sidebarSlice';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ChevronDown } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
@@ -66,12 +66,12 @@ const Sidebar = () => {
           fixed top-0 left-0 z-30
           bg-blue-500 shadow-lg transition-all duration-300 ease-in-out overflow-auto
           ${isOpen ? 'translate-x-0 w-[300px]' : 'translate-x-[-100%] w-[0px]'}
-          h-screen mt-14 md:mt-0
+          h-screen mt-0 md:mt-0
         `}
       >
         <div className="flex flex-col h-full relative">
           <div className="flex items-center justify-between p-4 bg-blue-500 relative z-10">
-            <h2 className="text-white font-semibold text-lg">WATER WISDOM</h2>
+            <h2 className="text-white font-semibold text-lg ps-16 md:ps-0">WATER WISDOM</h2>
           </div>
           <nav className="flex-1 overflow-y-auto bg-white scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-100 relative z-0">
             <ul className="pb-2">

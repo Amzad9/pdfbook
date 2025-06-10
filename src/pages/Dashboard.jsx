@@ -1,4 +1,5 @@
 import React from 'react';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import Page00 from '../assets/pages2/0.jpg';
 import Page01 from '../assets/pages2/1.jpg';
 import Page02 from '../assets/pages2/2.jpg';
@@ -63,16 +64,20 @@ const Dashboard = () => {
           id={`Page${index}`}
           style={{ marginBottom: '20px', textAlign: 'center' }}
         >
-          <img
-            src={PageComponent}
-            loading="lazy"
-            style={{
-              width: index === 0 ? '600px' : '100%',
-              margin: 'auto',
-              maxWidth: index === 0 ? '600px' : 'none',
-            }}
-            alt={`Page ${index}`}
-          />
+          <TransformWrapper>
+    <TransformComponent>
+            <img
+              src={PageComponent}
+              loading="lazy"
+              style={{
+                width: index === 0 ? '600px' : '100%',
+                margin: 'auto',
+                maxWidth: index === 0 ? '600px' : 'none',
+              }}
+              alt={`Page ${index}`}
+            />
+          </TransformComponent>
+  </TransformWrapper>
         </div>
       ))}
     </div>

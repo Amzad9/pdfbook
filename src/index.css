@@ -18,3 +18,9 @@ html {
 body {
   scroll-behavior: smooth;
 }
+
+@media (max-width: 640px) {
+  img{
+    max-width: 100% !important;
+  }
+}

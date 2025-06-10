@@ -43,15 +43,21 @@ function Home() {
           isOpen ? 'md:ml-[300px]' : 'md:ml-0'
         }`}
       >
+      <nav className="bg-transparent fixed top-0 pt-2 z-50 flex items-center">
         <button
           onClick={() => dispatch(toggleSidebar())}
-          className={`absolute top-4 ${
-            isOpen ? '-left-4' : 'left-0'
-          } bg-white text-black p-1 rounded-full shadow-md z-50 hover:bg-gray-200 transition`}
+          className={`xs:fixed p-2 rounded-full bg-gray-100 text-black shadow-md hover:bg-gray-200 transition-all duration-300 
+            sm:p-1.5 xs:p-1 ${isOpen ? 'ml-1' : 'ml-0'}`}
           aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
         >
-          {isOpen ? <ChevronLeft size={24} /> : <ChevronRight size={24} />}
+          {isOpen ? (
+            <ChevronLeft size={24} />
+          ) : (
+            <ChevronRight size={24} />
+          )}
         </button>
+      </nav>
+     
         <div className="max-w-[1300px] mx-auto px-3 py-4">
           <Outlet />
         </div>
