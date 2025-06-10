@@ -1,5 +1,6 @@
-import React from 'react';
-import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+import React, { useState } from 'react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css'; // Ensure CSS is imported
 import Page00 from '../assets/pages2/0.jpg';
 import Page01 from '../assets/pages2/1.jpg';
 import Page02 from '../assets/pages2/2.jpg';
@@ -56,6 +57,19 @@ const pages = [
 ];
 
 const Dashboard = () => {
+  // State to track which image is zoomed (store index or null if none)
+  const [zoomedIndex, setZoomedIndex] = useState(null);
+
+  // Handle zoom for a specific image
+  const handleZoom = (index) => {
+    setZoomedIndex(index);
+  };
+
+  // Handle unzoom (close zoom container)
+  const handleUnzoom = () => {
+    setZoomedIndex(null);
+  };
+
   return (
     <div style={{ scrollBehavior: 'smooth' }}>
       {pages.map((PageComponent, index) => (
@@ -64,8 +78,12 @@ const Dashboard = () => {
           id={`Page${index}`}
           style={{ marginBottom: '20px', textAlign: 'center' }}
         >
-          <TransformWrapper>
-    <TransformComponent>
+          <Zoom
+            isZoomed={zoomedIndex === index} // Control zoom state
+            onZoom={() => handleZoom(index)} // Trigger zoom
+            onUnzoom={handleUnzoom} // Trigger unzoom
+            zoomScale={1.5} // Keep your zoom scale
+          >
             <img
               src={PageComponent}
               loading="lazy"
@@ -76,8 +94,24 @@ const Dashboard = () => {
               }}
               alt={`Page ${index}`}
             />
-          </TransformComponent>
-  </TransformWrapper>
+          </Zoom>
+          {/* Add a close button for each image */}
+          {zoomedIndex === index && (
+            <button
+              onClick={handleUnzoom}
+              style={{
+                marginTop: '10px',
+                padding: '8px 16px',
+                background: '#ff4d4f',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+              }}
+            >
+              Close Zoom
+            </button>
+          )}
         </div>
       ))}
     </div>
