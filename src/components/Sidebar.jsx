@@ -24,21 +24,21 @@ const Sidebar = () => {
     {
       title: 'Selected Best Practices',
       children: [
-        { title: 'Laser Land Levelling', url: 'Page11', route: 'laser-land-levelling' },
-        { title: 'Zero Tillage Practices', url: 'Page13', route: 'zero-tillage-practices' },
-        { title: 'Vegetables on Raised Beds', url: 'Page15', route: 'vegetables-raised-beds' },
-        { title: 'Bed and Furrow Irrigation for Bananas', url: 'Page17', route: 'bed-furrow-irrigation-bananas' },
-        { title: 'Orchard in Ring Basins', url: 'Page19', route: 'orchard-ring-basins' },
-        { title: 'Intercropping', url: 'Page21', route: 'intercropping' },
-        { title: 'Tunnel Farming', url: 'Page23', route: 'tunnel-farming' },
-        { title: 'Drainage effluent for raising crops', url: 'Page25', route: 'drainage-effluent-crops' },
-        { title: 'Residue Management of Banana', url: 'Page27', route: 'banana-residue-management' },
-        { title: 'Hill Torrent Management', url: 'Page30', route: 'hill-torrents-beneficial' },
-        { title: 'Dryland Agriculture', url: 'Page32', route: 'rainfed-agriculture' },
-        { title: 'Tankaa', url: 'Page34', route: 'tankaa' },
-        { title: 'The Great Wall of Surajpura', url: 'Page36', route: 'great-wall-surajpura' },
-        { title: 'Promotion of Saline Aquaculture', url: 'Page37', route: 'saline-aquaculture' },
-        { title: 'Urban Water Management System', url: 'Page39', route: 'mobile-water-tank-monitoring' },
+        { title: '1. Laser Land Levelling', url: 'Page11', route: 'laser-land-levelling' },
+        { title: '2. Zero Tillage Practices', url: 'Page13', route: 'zero-tillage-practices' },
+        { title: '3. Vegetables on Raised Beds', url: 'Page15', route: 'vegetables-raised-beds' },
+        { title: '4. Bed and Furrow Irrigation for Bananas', url: 'Page17', route: 'bed-furrow-irrigation-bananas' },
+        { title: '5. Orchard in Ring Basins', url: 'Page19', route: 'orchard-ring-basins' },
+        { title: '6. Intercropping', url: 'Page21', route: 'intercropping' },
+        { title: '7. Tunnel Farming', url: 'Page23', route: 'tunnel-farming' },
+        { title: '8. Drainage effluent for raising crops', url: 'Page25', route: 'drainage-effluent-crops' },
+        { title: '9. Residue Management of Banana', url: 'Page27', route: 'banana-residue-management' },
+        { title: '10. Hill Torrent Management', url: 'Page30', route: 'hill-torrents-beneficial' },
+        { title: '11. Dryland Agriculture', url: 'Page32', route: 'rainfed-agriculture' },
+        { title: '12. Tankaa', url: 'Page34', route: 'tankaa' },
+        { title: '13.The Great Wall of Surajpura', url: 'Page36', route: 'great-wall-surajpura' },
+        { title: '14. Promotion of Saline Aquaculture', url: 'Page37', route: 'saline-aquaculture' },
+        { title: '15. Urban Water Management System', url: 'Page39', route: 'mobile-water-tank-monitoring' },
       ],
     },
     { title: 'Acknowledgement', url: 'Page42', route: '/categorisation' },
@@ -100,7 +100,7 @@ const Sidebar = () => {
                                   easing="easeInOutQuad"
                                   spy={true}
                                   onSetActive={handleSetActive}
-                                  className={`block w-full px-6 py-2 ${
+                                  className={`block w-full ps-6 py-2 ${
                                     activeItem === child.url
                                       ? 'bg-blue-300 font-bold text-white'
                                       : 'text-black hover:bg-blue-100'
