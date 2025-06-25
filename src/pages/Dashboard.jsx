@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css'; // Ensure CSS is imported
 import Page00 from '../assets/final/0.jpg';
-import Page01 from '../assets/final/1.jpg';
 import Page02 from '../assets/final/2.jpg';
 import Page03 from '../assets/final/3.jpg';
 import Page04 from '../assets/final/4.jpg';
@@ -94,7 +93,7 @@ import Page88 from '../assets/final/88.jpg';
 import Page89 from '../assets/final/89.jpg';
 
 const pages = [
-  Page00, Page01, Page02, Page03, Page04, Page05, Page06, Page07, Page08, Page09,
+  Page00, Page02, Page03, Page04, Page05, Page06, Page07, Page08, Page09,
   Page10, Page11, Page12, Page13, Page14, Page15, Page16, Page17, Page18, Page19,
   Page20, Page21, Page22, Page23, Page24, Page25, Page26, Page27, Page28, Page29,
   Page30, Page31, Page32, Page33, Page34, Page35, Page36, Page37, Page38, Page39,
