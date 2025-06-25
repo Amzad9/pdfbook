@@ -40,7 +40,7 @@ function Home() {
       <Sidebar />
       <main
         className={`flex-1 relative transition-all duration-300 ${
-          isOpen ? 'md:ml-[300px]' : 'md:ml-0'
+          isOpen ? 'md:ml-[420px]' : 'md:ml-0'
         }`}
       >
       <nav className="bg-transparent fixed top-0 pt-2 z-50 flex items-center">
