@@ -24,16 +24,16 @@ html, body{
 }
   
 
-    .text-vertical-line::before {
-      content: '';
-      position: absolute;
-      bottom: 20%;
-      left: -13px;
-      width: 2px;
-      height: 200px;
-      background-color: white;
-      top: 50%;
-      transform: translateY(190%);
-    }
+.text-vertical-line::before {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: -13px;
+  width: 2px;
+  height: 200px;
+  background-color: white;
+  top: 50%;
+  transform: translateY(190%);
+}
 
   
