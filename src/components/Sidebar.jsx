@@ -39,7 +39,7 @@ const Sidebar = () => {
     { title: '15. Urban Water Management System', url: 'Page74', route: '/mobile-water-tank-monitoring', page: '76' },
     { title: 'Acknowledgement', url: 'Page79', route: '/acknowledgement', page: '80' },
     { title: 'Know More (References)', url: 'Page81', route: '/references', page: '82' },
-    { title: 'Glossary of Terms', url: 'Page84', route: '/glossary', page: '84' },
+    { title: 'Glossary of Terms', url: 'Page82', route: '/glossary', page: '84' },
   ];
 
   const handleSetActive = (to) => {

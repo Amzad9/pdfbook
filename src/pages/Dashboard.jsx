@@ -86,10 +86,11 @@ import Page82 from '../assets/final/82.jpg';
 import Page83 from '../assets/final/83.jpg';
 import Page84 from '../assets/final/84.jpg';
 import Page85 from '../assets/final/85.jpg';
-import Page86 from '../assets/final/86.jpg';
+// import Page86 from '../assets/final/86.jpg';
 import Page87 from '../assets/final/87.jpg';
 import Page88 from '../assets/final/88.jpg';
 import Page89 from '../assets/final/89.jpg';
+import KnowMore from './KnowMore';
 
 const pages = [
   Page00, Page02, Page03, Page05, Page06, Page07, Page08,
@@ -100,7 +101,7 @@ const pages = [
   Page46, Page47, Page48, Page49, Page50, Page51, Page52, Page53, Page54, Page55,
   Page56, Page57, Page58, Page59, Page60, Page61, Page62, Page63, Page64, Page65,
   Page66, Page67, Page68, Page69, Page70, Page71, Page72, Page73, Page74, Page75,
-  Page76, Page77, Page78, Page79, Page80, Page81, Page82, Page83, Page84,Page85,Page86, Page87, Page88, Page89
+  Page76, Page77, Page78, Page79, Page80, Page81, Page82, Page83, Page84, Page85, Page87, Page88, Page89
 ];
 
 
@@ -126,6 +127,9 @@ const Dashboard = () => {
           id={`Page${index}`}
           style={{ marginBottom: '20px', textAlign: 'center' }}
         >
+        {index === 81 ? (
+            (<KnowMore />)
+          ) : (
           <Zoom
             isZoomed={zoomedIndex === index} // Control zoom state
             onZoom={() => handleZoom(index)} // Trigger zoom
@@ -143,6 +147,7 @@ const Dashboard = () => {
               alt={`Page ${index}`}
             />
           </Zoom>
+          )}
           {/* Add a close button for each image */}
           {zoomedIndex === index && (
             <button
