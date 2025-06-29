@@ -89,11 +89,11 @@ const Sidebar = () => {
     <>
       <aside
         className={`ps-10 fixed top-0 left-0 z-30 h-screen overflow-y-auto bg-[#89BDE5] border-r border-blue-100 shadow transition-all duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0 w-[80%] sm:w-[420px]' : 'translate-x-[-100%] w-[0px]'
+          isOpen ? 'translate-x-0 w-[80%] sm:w-[353px]' : 'translate-x-[-100%] w-[0px]'
         }`}
       >
         <div className="relative text-vertical-line">
-          <div className="absolute left-[-158px] tracking-[4px] top-[230px] -translate-y-1/2 transform -rotate-90 text-white font-semibold tracking-widest text-[24px]">
+          <div className="absolute left-[-158px] top-[230px] -translate-y-1/2 transform -rotate-90 text-white font-semibold tracking-widest text-[24px]">
             TABLE OF CONTENTS
           </div>
         </div>
