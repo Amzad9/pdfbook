@@ -35,5 +35,8 @@ html, body{
   top: 50%;
   transform: translateY(190%);
 }
+img{
+max-width: 100%;
+}
 
   

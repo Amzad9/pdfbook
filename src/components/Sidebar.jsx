@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from '../store/sidebarSlice';
 import { Link as ScrollLink } from 'react-scroll';
@@ -13,8 +13,6 @@ const Sidebar = () => {
 
   const menuItems = [
     { title: 'About the Book', url: 'Page5', route: '/about', page: '04' },
-    // { title: 'Message, Secretary, Sindh Irrigation Department', url: 'Page9', route: '/messagesindh', page: '06' },
-    // { title: 'Message, Secretary, Sindh Agriculture Department', url: 'Page10', route: '/messagesindh', page: '07' },
     { title: 'Introduction', url: 'Page7', route: '/introduction', page: '08' },
     { title: 'Water Resources of Sindh Province', url: 'Page9', route: '/waterresources', page: '10' },
     { title: 'Climate Dynamics and their Impacts', url: 'Page11', route: '/climatedynamics', page: '12' },
@@ -42,6 +40,37 @@ const Sidebar = () => {
     { title: 'Glossary of Terms', url: 'Page82', route: '/glossary', page: '84' },
   ];
 
+  // Set active item based on current scroll position or route
+  useEffect(() => {
+    if (isDashboard) {
+      // On dashboard, set active item based on scroll position
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY + 100; // Adjust offset as needed
+        const currentSection = menuItems.find((item) => {
+          if (item.isHeading) return false;
+          const element = document.getElementById(item.url);
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            return scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight;
+          }
+          return false;
+        });
+        if (currentSection) {
+          setActiveItem(currentSection.url);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+      // On other routes, set active item based on the current route
+      const currentItem = menuItems.find((item) => item.route === location.pathname);
+      if (currentItem) {
+        setActiveItem(currentItem.url);
+      }
+    }
+  }, [isDashboard, location.pathname]);
+
   const handleSetActive = (to) => {
     setActiveItem(to);
   };
@@ -63,11 +92,11 @@ const Sidebar = () => {
           isOpen ? 'translate-x-0 w-[80%] sm:w-[420px]' : 'translate-x-[-100%] w-[0px]'
         }`}
       >
-<div className='relative text-vertical-line'>
-        <div className="absolute left-[-158px] tracking-[4px] top-[230px] -translate-y-1/2 transform -rotate-90 text-white font-semibold tracking-widest text-[24px]">
-          TABLE OF CONTENTS
+        <div className="relative text-vertical-line">
+          <div className="absolute left-[-158px] tracking-[4px] top-[230px] -translate-y-1/2 transform -rotate-90 text-white font-semibold tracking-widest text-[24px]">
+            TABLE OF CONTENTS
+          </div>
         </div>
-</div>
 
         <div className="text-center pt-4 pb-3 z-10">
           <h2 className="text-xl font-bold tracking-wide text-white">WATER WISDOM</h2>
@@ -76,7 +105,7 @@ const Sidebar = () => {
         <nav className="px-1 py-2 scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-50">
           <ul>
             {menuItems.map((item, index) => (
-              <li key={index} className="text-[13px] ">
+              <li key={index} className="text-[13px]">
                 {item.isHeading ? (
                   <div className="px-4 py-1 font-semibold text-white ps-4">
                     {renderLineWithDots(item.title, '')}
@@ -95,9 +124,10 @@ const Sidebar = () => {
                         className={`block px-4 py-0 ${
                           activeItem === item.url
                             ? 'text-gray-800 font-bold'
-                            : ' text-gray-800 font-light'
+                            : 'text-gray-800 font-light'
                         }`}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent event propagation
                           setActiveItem(item.url);
                           if (window.innerWidth < 768) dispatch(toggleSidebar());
                         }}
@@ -110,9 +140,10 @@ const Sidebar = () => {
                         className={`block px-4 py-0 ${
                           activeItem === item.url
                             ? 'text-gray-800 font-semibold'
-                            : ' text-gray-800'
+                            : 'text-gray-800'
                         }`}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent event propagation
                           setActiveItem(item.url);
                           if (window.innerWidth < 768) dispatch(toggleSidebar());
                         }}
@@ -131,7 +162,10 @@ const Sidebar = () => {
       {isOpen && (
         <div
           className="fixed inset-0 z-20 bg-black bg-opacity-50 md:hidden"
-          onClick={() => dispatch(toggleSidebar())}
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent event propagation
+            dispatch(toggleSidebar());
+          }}
         />
       )}
     </>
