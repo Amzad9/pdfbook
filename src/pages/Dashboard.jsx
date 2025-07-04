@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css'; // Ensure CSS is imported
+import 'react-medium-image-zoom/dist/styles.css';
 import Page00 from '../assets/final/0.jpg';
 import Page02 from '../assets/final/2.jpg';
 import Page03 from '../assets/final/3.jpg';
@@ -8,8 +8,6 @@ import Page05 from '../assets/final/5.jpg';
 import Page06 from '../assets/final/6.jpg';
 import Page07 from '../assets/final/7.jpg';
 import Page08 from '../assets/final/8.jpg';
-// import Page09 from '../assets/final/9.jpg';
-// import Page10 from '../assets/final/10.jpg';
 import Page11 from '../assets/final/11.jpg';
 import Page12 from '../assets/final/12.jpg';
 import Page13 from '../assets/final/13.jpg';
@@ -45,7 +43,6 @@ import Page42 from '../assets/final/42.jpg';
 import Page43 from '../assets/final/43.jpg';
 import Page44 from '../assets/final/44.jpg';
 import Page45 from '../assets/final/45.jpg';
-
 import Page46 from '../assets/final/46.jpg';
 import Page47 from '../assets/final/47.jpg';
 import Page48 from '../assets/final/48.jpg';
@@ -86,7 +83,6 @@ import Page82 from '../assets/final/82.jpg';
 import Page83 from '../assets/final/83.jpg';
 import Page84 from '../assets/final/84.jpg';
 import Page85 from '../assets/final/85.jpg';
-// import Page86 from '../assets/final/86.jpg';
 import Page87 from '../assets/final/87.jpg';
 import Page88 from '../assets/final/88.jpg';
 import Page89 from '../assets/final/89.jpg';
@@ -94,30 +90,29 @@ import KnowMore from './KnowMore';
 
 const pages = [
   Page00, Page02, Page03, Page05, Page06, Page07, Page08,
- Page11, Page12, Page13, Page14, Page15, Page16, Page17, Page18, Page19,
+  Page11, Page12, Page13, Page14, Page15, Page16, Page17, Page18, Page19,
   Page20, Page21, Page22, Page23, Page24, Page25, Page26, Page27, Page28, Page29,
   Page30, Page31, Page32, Page33, Page34, Page35, Page36, Page37, Page38, Page39,
   Page40, Page41, Page42, Page43, Page44, Page45,
   Page46, Page47, Page48, Page49, Page50, Page51, Page52, Page53, Page54, Page55,
   Page56, Page57, Page58, Page59, Page60, Page61, Page62, Page63, Page64, Page65,
   Page66, Page67, Page68, Page69, Page70, Page71, Page72, Page73, Page74, Page75,
-  Page76, Page77, Page78, Page79, Page80, Page81, Page82, Page83, Page84, Page85, Page87, Page88, Page89
+  Page76, Page77, Page78, Page79, Page80, Page81, Page82, Page83, Page84, Page85,
+  Page87, Page88, Page89
 ];
 
-
 const Dashboard = () => {
-  // State to track which image is zoomed (store index or null if none)
   const [zoomedIndex, setZoomedIndex] = useState(null);
 
-  // Handle zoom for a specific image
   const handleZoom = (index) => {
     setZoomedIndex(index);
   };
 
-  // Handle unzoom (close zoom container)
   const handleUnzoom = () => {
     setZoomedIndex(null);
   };
+
+  const linkPages = [50, 20, 24, 28,32,36, 40,44, 48, 52, 58, 62, 66, 68, 72, 78];
 
   return (
     <div style={{ scrollBehavior: 'smooth' }}>
@@ -127,28 +122,41 @@ const Dashboard = () => {
           id={`Page${index}`}
           style={{ marginBottom: '20px', textAlign: 'center' }}
         >
-        {index === 81 ? (
-            (<KnowMore />)
+          {index === 81 ? (
+            <KnowMore />
           ) : (
-          <Zoom
-            isZoomed={zoomedIndex === index} // Control zoom state
-            onZoom={() => handleZoom(index)} // Trigger zoom
-            onUnzoom={handleUnzoom} // Trigger unzoom
-            zoomScale={1.5} // Keep your zoom scale
-          >
-            <img
-              src={PageComponent}
-              loading="lazy"
-              style={{
-                width: index === 0 ? '600px' : '100%',
-                margin: 'auto',
-                maxWidth: index === 0 ? '600px' : 'none',
-              }}
-              alt={`Page ${index}`}
-            />
-          </Zoom>
+            <Zoom
+              isZoomed={zoomedIndex === index}
+              onZoom={() => handleZoom(index)}
+              onUnzoom={handleUnzoom}
+              zoomScale={1.5}
+            >
+              {linkPages.includes(index) ? (
+                <a href="#Page81">
+                  <img
+                    src={PageComponent}
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      margin: 'auto',
+                    }}
+                    alt={`Page ${index}`}
+                  />
+                </a>
+              ) : (
+                <img
+                  src={PageComponent}
+                  loading="lazy"
+                  style={{
+                    width: index === 0 ? '600px' : '100%',
+                    margin: 'auto',
+                    maxWidth: index === 0 ? '600px' : 'none',
+                  }}
+                  alt={`Page ${index}`}
+                />
+              )}
+            </Zoom>
           )}
-          {/* Add a close button for each image */}
           {zoomedIndex === index && (
             <button
               onClick={handleUnzoom}

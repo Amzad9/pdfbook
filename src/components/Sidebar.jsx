@@ -19,42 +19,63 @@ const Sidebar = () => {
     { title: 'Identification of the Practices: The Process', url: 'Page12', route: '/identification', page: '13' },
     { title: 'Evaluation Location of the Practices', url: 'Page13', route: '/evaluation', page: '14' },
     { title: 'Categorisation of the Practices', url: 'Page14', route: '/evaluation', page: '15' },
-    { title: 'Selected Best Practices', isHeading: true },
-    { title: '1. Laser Land Levelling', url: 'Page17', route: '/laser-land-levelling', page: '18' },
-    { title: '2. Zero Tillage Practices', url: 'Page21', route: '/zero-tillage-practices', page: '22' },
-    { title: '3. Vegetables on Raised Beds', url: 'Page25', route: '/vegetables-raised-beds', page: '26' },
-    { title: '4. Bed and Furrow Irrigation for Bananas', url: 'Page29', route: '/bed-furrow-irrigation-bananas', page: '30' },
-    { title: '5. Orchard in Ring Basins', url: 'Page33', route: '/orchard-ring-basins', page: '34' },
-    { title: '6. Intercropping', url: 'Page37', route: '/intercropping', page: '38' },
-    { title: '7. Tunnel Farming', url: 'Page41', route: '/tunnel-farming', page: '42' },
-    { title: '8. Drainage effluent for raising crops', url: 'Page45', route: '/drainage-effluent-crops', page: '46' },
-    { title: '9. Residue Management of Banana', url: 'Page49', route: '/banana-residue-management', page: '50' },
-    { title: '10. Hill Torrent Management', url: 'Page55', route: '/hill-torrents-beneficial', page: '56' },
-    { title: '11. Dryland Agriculture', url: 'Page59', route: '/rainfed-agriculture', page: '60' },
-    { title: '12. Tankaa', url: 'Page63', route: '/tankaa', page: '64' },
-    { title: '13. The Great Wall of Surajpura', url: 'Page67', route: '/great-wall-surajpura', page: '68' },
-    { title: '14. Promotion of Saline Aquaculture', url: 'Page69', route: '/saline-aquaculture', page: '70' },
-    { title: '15. Urban Water Management System', url: 'Page74', route: '/mobile-water-tank-monitoring', page: '76' },
+    {
+      title: 'Selected Best Practices',
+      isHeading: true,
+      subItems: [
+        {
+          groupTitle: 'Inrigated Area Water Management',
+          items: [
+            { title: '1. Laser Land Levelling', url: 'Page17', route: '/laser-land-levelling', page: '18' },
+            { title: '2. Zero Tillage Practices', url: 'Page21', route: '/zero-tillage-practices', page: '22' },
+            { title: '3. Vegetables on Raised Beds', url: 'Page25', route: '/vegetables-raised-beds', page: '26' },
+            { title: '4. Bed and Furrow Irrigation for Bananas', url: 'Page29', route: '/bed-furrow-irrigation-bananas', page: '30' },
+            { title: '5. Orchard in Ring Basins', url: 'Page33', route: '/orchard-ring-basins', page: '34' },
+            { title: '6. Intercropping', url: 'Page37', route: '/intercropping', page: '38' },
+            { title: '7. Tunnel Farming', url: 'Page41', route: '/tunnel-farming', page: '42' },
+            { title: '8. Drainage effluent for raising crops', url: 'Page45', route: '/drainage-effluent-crops', page: '46' },
+            { title: '9. Residue Management of Banana', url: 'Page49', route: '/banana-residue-management', page: '50' },
+          ],
+        },
+      
+        {
+          groupTitle: 'Dryland Area Water Management',
+          items: [
+            { title: '10. Hill Torrent Management', url: 'Page55', route: '/hill-torrents-beneficial', page: '56' },
+            { title: '11. Dryland Agriculture', url: 'Page59', route: '/rainfed-agriculture', page: '60' },
+            { title: '12. Tankaa', url: 'Page63', route: '/tankaa', page: '64' },
+            { title: '13. The Great Wall of Surajpura', url: 'Page67', route: '/great-wall-surajpura', page: '68' },
+            { title: '14. Promotion of Saline Aquaculture', url: 'Page69', route: '/saline-aquaculture', page: '70' },
+          ],
+        },
+  {
+          groupTitle: 'Urban Area Water Management',
+          items: [
+            { title: '15. Urban Water Management System', url: 'Page74', route: '/mobile-water-tank-monitoring', page: '76' },
+          ],
+        },
+      ],
+    },
     { title: 'Acknowledgement', url: 'Page79', route: '/acknowledgement', page: '80' },
     { title: 'Know More (References)', url: 'Page81', route: '/references', page: '82' },
     { title: 'Glossary of Terms', url: 'Page82', route: '/glossary', page: '84' },
   ];
 
-  // Set active item based on current scroll position or route
   useEffect(() => {
     if (isDashboard) {
-      // On dashboard, set active item based on scroll position
       const handleScroll = () => {
-        const scrollPosition = window.scrollY + 100; // Adjust offset as needed
-        const currentSection = menuItems.find((item) => {
-          if (item.isHeading) return false;
-          const element = document.getElementById(item.url);
-          if (element) {
-            const { offsetTop, offsetHeight } = element;
-            return scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight;
-          }
-          return false;
-        });
+        const scrollPosition = window.scrollY + 100;
+        const currentSection = menuItems
+          .flatMap((item) => (item.subItems ? item.subItems.flatMap((group) => group.items || []) : item))
+          .find((item) => {
+            if (!item.url) return false;
+            const element = document.getElementById(item.url);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              return scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight;
+            }
+            return false;
+          });
         if (currentSection) {
           setActiveItem(currentSection.url);
         }
@@ -63,8 +84,9 @@ const Sidebar = () => {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     } else {
-      // On other routes, set active item based on the current route
-      const currentItem = menuItems.find((item) => item.route === location.pathname);
+      const currentItem = menuItems
+        .flatMap((item) => (item.subItems ? item.subItems.flatMap((group) => group.items || []) : item))
+        .find((item) => item.route === location.pathname);
       if (currentItem) {
         setActiveItem(currentItem.url);
       }
@@ -83,6 +105,57 @@ const Sidebar = () => {
       </span>
       {page && <span className="text-white font-semibold">{page}</span>}
     </span>
+  );
+
+  const renderItem = (item, index) => (
+    <li key={index} className="text-[13px]">
+      {isDashboard ? (
+        <ScrollLink
+          to={item.url}
+          smooth={true}
+          duration={500}
+          offset={-70}
+          easing="easeInOutQuad"
+          spy={true}
+          onSetActive={handleSetActive}
+          className={`block px-4 py-0 ${
+            activeItem === item.url ? 'text-gray-800 font-bold' : 'text-gray-800 font-light'
+          }`}
+          onClick={(e) => {
+            e.stopPropagation();
+            setActiveItem(item.url);
+            if (window.innerWidth < 768) dispatch(toggleSidebar());
+          }}
+        >
+          {renderLineWithDots(item.title, item.page)}
+        </ScrollLink>
+      ) : (
+        <RouterLink
+          to={item.route}
+          className={`block px-4 py-0 ${
+            activeItem === item.url ? 'text-gray-800 font-semibold' : 'text-gray-800'
+          }`}
+          onClick={(e) => {
+            e.stopPropagation();
+            setActiveItem(item.url);
+            if (window.innerWidth < 768) dispatch(toggleSidebar());
+          }}
+        >
+          {renderLineWithDots(item.title, item.page)}
+        </RouterLink>
+      )}
+    </li>
+  );
+
+  const renderGroup = (groupItems, groupName) => (
+    <li className="text trafi-[13px]">
+      <div className="px-4 py-1 font-semibold text-white">
+        {renderLineWithDots(groupName, '')}
+      </div>
+      <ul className="pl-4">
+        {groupItems.map((item, index) => renderItem(item, index))}
+      </ul>
+    </li>
   );
 
   return (
@@ -107,51 +180,18 @@ const Sidebar = () => {
             {menuItems.map((item, index) => (
               <li key={index} className="text-[13px]">
                 {item.isHeading ? (
-                  <div className="px-4 py-1 font-semibold text-white ps-4">
-                    {renderLineWithDots(item.title, '')}
-                  </div>
-                ) : (
                   <>
-                    {isDashboard ? (
-                      <ScrollLink
-                        to={item.url}
-                        smooth={true}
-                        duration={500}
-                        offset={-70}
-                        easing="easeInOutQuad"
-                        spy={true}
-                        onSetActive={handleSetActive}
-                        className={`block px-4 py-0 ${
-                          activeItem === item.url
-                            ? 'text-gray-800 font-bold'
-                            : 'text-gray-800 font-light'
-                        }`}
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent event propagation
-                          setActiveItem(item.url);
-                          if (window.innerWidth < 768) dispatch(toggleSidebar());
-                        }}
-                      >
-                        {renderLineWithDots(item.title, item.page)}
-                      </ScrollLink>
-                    ) : (
-                      <RouterLink
-                        to={item.route}
-                        className={`block px-4 py-0 ${
-                          activeItem === item.url
-                            ? 'text-gray-800 font-semibold'
-                            : 'text-gray-800'
-                        }`}
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent event propagation
-                          setActiveItem(item.url);
-                          if (window.innerWidth < 768) dispatch(toggleSidebar());
-                        }}
-                      >
-                        {renderLineWithDots(item.title, item.page)}
-                      </RouterLink>
-                    )}
+                    <div className="px-4 py-1 font-semibold text-white ps-4">
+                      {renderLineWithDots(item.title, '')}
+                    </div>
+                    {item.subItems && item.subItems.map((group, groupIndex) => (
+                      <React.Fragment key={groupIndex}>
+                        {renderGroup(group.items, group.groupTitle)}
+                      </React.Fragment>
+                    ))}
                   </>
+                ) : (
+                  renderItem(item, index)
                 )}
               </li>
             ))}
@@ -163,7 +203,7 @@ const Sidebar = () => {
         <div
           className="fixed inset-0 z-20 bg-black bg-opacity-50 md:hidden"
           onClick={(e) => {
-            e.stopPropagation(); // Prevent event propagation
+            e.stopPropagation();
             dispatch(toggleSidebar());
           }}
         />
