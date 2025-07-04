@@ -11,7 +11,7 @@ const Sidebar = () => {
   const location = useLocation();
   const isDashboard = location.pathname === '/';
 
-  const menuItems = [
+  const menuItems = React.useMemo(() => [
     { title: 'About the Book', url: 'Page5', route: '/about', page: '04' },
     { title: 'Introduction', url: 'Page7', route: '/introduction', page: '08' },
     { title: 'Water Resources of Sindh Province', url: 'Page9', route: '/waterresources', page: '10' },
@@ -51,7 +51,7 @@ const Sidebar = () => {
   {
           groupTitle: 'Urban Area Water Management',
           items: [
-            { title: '15. Urban Water Management System', url: 'Page74', route: '/mobile-water-tank-monitoring', page: '76' },
+            { title: '15. Mobile Application Based Romote Water Tank Monitoring', url: 'Page75', route: '/mobile-water-tank-monitoring', page: '76' },
           ],
         },
       ],
@@ -59,7 +59,7 @@ const Sidebar = () => {
     { title: 'Acknowledgement', url: 'Page79', route: '/acknowledgement', page: '80' },
     { title: 'Know More (References)', url: 'Page81', route: '/references', page: '82' },
     { title: 'Glossary of Terms', url: 'Page82', route: '/glossary', page: '84' },
-  ];
+  ], []);
 
   useEffect(() => {
     if (isDashboard) {
@@ -91,7 +91,7 @@ const Sidebar = () => {
         setActiveItem(currentItem.url);
       }
     }
-  }, [isDashboard, location.pathname]);
+  }, [isDashboard, location.pathname, menuItems]);
 
   const handleSetActive = (to) => {
     setActiveItem(to);
@@ -100,7 +100,7 @@ const Sidebar = () => {
   const renderLineWithDots = (label, page) => (
     <span className="flex justify-between items-center w-full">
       <span className="truncate text-white cursor-pointer">
-        {label}
+        <span title={label}> {label}</span>
         {page && <span className="dot-leader mx-1">................................................................</span>}
       </span>
       {page && <span className="text-white font-semibold">{page}</span>}
@@ -171,7 +171,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className="text-center pt-4 pb-3 z-10">
+        <div className="text-center pt-2 pb-0 z-10">
           <h2 className="text-xl font-bold tracking-wide text-white">WATER WISDOM</h2>
         </div>
 
