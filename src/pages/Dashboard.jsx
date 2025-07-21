@@ -116,7 +116,7 @@ const Dashboard = () => {
     setZoomedIndex(null);
   };
 
-  const linkPages = [50, 20, 24, 28,32,36, 40,44, 48, 52, 58, 62, 66, 68, 72, 78];
+  const linkPages = [22, 26, 30,34,38, 42,46, 50, 54, 60, 64, 68, 70, 74, 80];
 
   return (
     <div style={{ scrollBehavior: 'smooth' }}>
@@ -136,7 +136,7 @@ const Dashboard = () => {
               zoomScale={1.5}
             >
               {linkPages.includes(index) ? (
-                <a href="#Page81">
+                <a href="#Page82">
                   <img
                     src={PageComponent}
                     loading="lazy"
