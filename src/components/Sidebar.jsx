@@ -13,12 +13,13 @@ const Sidebar = () => {
 
   const menuItems = React.useMemo(() => [
     { title: 'About the Book', url: 'Page5', route: '/about', page: '04' },
-    { title: 'Introduction', url: 'Page7', route: '/introduction', page: '08' },
-    { title: 'Water Resources of Sindh Province', url: 'Page9', route: '/waterresources', page: '10' },
-    { title: 'Climate Dynamics and their Impacts', url: 'Page11', route: '/climatedynamics', page: '12' },
-    { title: 'Identification of the Practices: The Process', url: 'Page12', route: '/identification', page: '13' },
-    { title: 'Evaluation Location of the Practices', url: 'Page13', route: '/evaluation', page: '14' },
-    { title: 'Categorisation of the Practices', url: 'Page14', route: '/evaluation', page: '15' },
+ { title: 'Foreword, Secretary, Irrigation Department, Sindh', url: 'Page8', route: '/about', page: '07' },
+    { title: 'Introduction', url: 'Page9', route: '/introduction', page: '08' },
+    { title: 'Water Resources of Sindh Province', url: 'Page11', route: '/waterresources', page: '10' },
+    { title: 'Climate Dynamics and their Impacts', url: 'Page13', route: '/climatedynamics', page: '12' },
+    { title: 'Identification of the Practices: The Process', url: 'Page14', route: '/identification', page: '13' },
+    { title: 'Evaluation Location of the Practices', url: 'Page15', route: '/evaluation', page: '14' },
+    { title: 'Categorisation of the Practices', url: 'Page16', route: '/evaluation', page: '15' },
     {
       title: 'Selected Best Practices',
       isHeading: true,
@@ -26,39 +27,39 @@ const Sidebar = () => {
         {
           groupTitle: 'Inrigated Area Water Management',
           items: [
-            { title: '1. Laser Land Levelling', url: 'Page17', route: '/laser-land-levelling', page: '18' },
-            { title: '2. Zero Tillage Practices', url: 'Page21', route: '/zero-tillage-practices', page: '22' },
-            { title: '3. Vegetables on Raised Beds', url: 'Page25', route: '/vegetables-raised-beds', page: '26' },
-            { title: '4. Bed and Furrow Irrigation for Bananas', url: 'Page29', route: '/bed-furrow-irrigation-bananas', page: '30' },
-            { title: '5. Orchard in Ring Basins', url: 'Page33', route: '/orchard-ring-basins', page: '34' },
-            { title: '6. Intercropping', url: 'Page37', route: '/intercropping', page: '38' },
-            { title: '7. Tunnel Farming', url: 'Page41', route: '/tunnel-farming', page: '42' },
-            { title: '8. Drainage effluent for raising crops', url: 'Page45', route: '/drainage-effluent-crops', page: '46' },
-            { title: '9. Residue Management of Banana', url: 'Page49', route: '/banana-residue-management', page: '50' },
+            { title: '1. Laser Land Levelling', url: 'Page19', route: '/laser-land-levelling', page: '18' },
+            { title: '2. Zero Tillage Practices', url: 'Page23', route: '/zero-tillage-practices', page: '22' },
+            { title: '3. Vegetables on Raised Beds', url: 'Page27', route: '/vegetables-raised-beds', page: '26' },
+            { title: '4. Bed and Furrow Irrigation for Bananas', url: 'Page31', route: '/bed-furrow-irrigation-bananas', page: '30' },
+            { title: '5. Orchard in Ring Basins', url: 'Page35', route: '/orchard-ring-basins', page: '34' },
+            { title: '6. Intercropping', url: 'Page39', route: '/intercropping', page: '38' },
+            { title: '7. Tunnel Farming', url: 'Page43', route: '/tunnel-farming', page: '42' },
+            { title: '8. Drainage effluent for raising crops', url: 'Page47', route: '/drainage-effluent-crops', page: '46' },
+            { title: '9. Residue Management of Banana', url: 'Page51', route: '/banana-residue-management', page: '50' },
           ],
         },
       
         {
           groupTitle: 'Dryland Area Water Management',
           items: [
-            { title: '10. Hill Torrent Management', url: 'Page55', route: '/hill-torrents-beneficial', page: '56' },
-            { title: '11. Dryland Agriculture', url: 'Page59', route: '/rainfed-agriculture', page: '60' },
-            { title: '12. Tankaa', url: 'Page63', route: '/tankaa', page: '64' },
-            { title: '13. The Great Wall of Surajpura', url: 'Page67', route: '/great-wall-surajpura', page: '68' },
-            { title: '14. Promotion of Saline Aquaculture', url: 'Page69', route: '/saline-aquaculture', page: '70' },
+            { title: '10. Hill Torrent Management', url: 'Page57', route: '/hill-torrents-beneficial', page: '56' },
+            { title: '11. Dryland Agriculture', url: 'Page61', route: '/rainfed-agriculture', page: '60' },
+            { title: '12. Tankaa', url: 'Page65', route: '/tankaa', page: '64' },
+            { title: '13. The Great Wall of Surajpura', url: 'Page69', route: '/great-wall-surajpura', page: '68' },
+            { title: '14. Promotion of Saline Aquaculture', url: 'Page71', route: '/saline-aquaculture', page: '70' },
           ],
         },
   {
           groupTitle: 'Urban Area Water Management',
           items: [
-            { title: '15. Mobile Application Based Romote Water Tank Monitoring', url: 'Page75', route: '/mobile-water-tank-monitoring', page: '76' },
+            { title: '15. Mobile Application Based Romote Water Tank Monitoring', url: 'Page77', route: '/mobile-water-tank-monitoring', page: '76' },
           ],
         },
       ],
     },
-    { title: 'Acknowledgement', url: 'Page79', route: '/acknowledgement', page: '80' },
-    { title: 'Know More (References)', url: 'Page81', route: '/references', page: '82' },
-    { title: 'Glossary of Terms', url: 'Page82', route: '/glossary', page: '84' },
+    { title: 'Acknowledgement', url: 'Page81', route: '/acknowledgement', page: '80' },
+    { title: 'Know More (References)', url: 'Page82', route: '/references', page: '82' },
+    { title: 'Glossary of Terms', url: 'Page84', route: '/glossary', page: '84' },
   ], []);
 
   useEffect(() => {

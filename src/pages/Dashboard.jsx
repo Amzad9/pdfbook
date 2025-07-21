@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import Page00 from '../assets/final/0.jpg';
+import Page01 from '../assets/final/1.jpg';
 import Page02 from '../assets/final/2.jpg';
 import Page03 from '../assets/final/3.jpg';
+import Page04 from '../assets/final/4.jpg';
 import Page05 from '../assets/final/5.jpg';
 import Page06 from '../assets/final/6.jpg';
 import Page07 from '../assets/final/7.jpg';
 import Page08 from '../assets/final/8.jpg';
+import Page09 from '../assets/final/9.jpg';
+import Page10 from '../assets/final/10.jpg';
 import Page11 from '../assets/final/11.jpg';
 import Page12 from '../assets/final/12.jpg';
 import Page13 from '../assets/final/13.jpg';
@@ -89,7 +93,7 @@ import Page89 from '../assets/final/89.jpg';
 import KnowMore from './KnowMore';
 
 const pages = [
-  Page00, Page02, Page03, Page05, Page06, Page07, Page08,
+  Page00, Page02, Page03, Page05, Page06, Page07, Page08, Page09, Page10,
   Page11, Page12, Page13, Page14, Page15, Page16, Page17, Page18, Page19,
   Page20, Page21, Page22, Page23, Page24, Page25, Page26, Page27, Page28, Page29,
   Page30, Page31, Page32, Page33, Page34, Page35, Page36, Page37, Page38, Page39,
@@ -122,7 +126,7 @@ const Dashboard = () => {
           id={`Page${index}`}
           style={{ marginBottom: '20px', textAlign: 'center' }}
         >
-          {index === 81 ? (
+          {index === 82 ? (
             <KnowMore />
           ) : (
             <Zoom
